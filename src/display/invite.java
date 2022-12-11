@@ -14,7 +14,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 public class invite extends JFrame{
     private final static ArrayList<String> List= new ArrayList<String>();
@@ -27,6 +26,7 @@ public class invite extends JFrame{
     private JTextField search_friend;
     private JButton searchButton;
     private JLabel invite_list;
+    private JButton exitButton;
 
     private String user_id;
     private chatting_client client;
@@ -66,6 +66,16 @@ public class invite extends JFrame{
         invite_scroll.setViewportView(scoll);
         invite_scroll.setVisible(true);
         scoll.setVisible(true);
+
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dm a = new dm(session,client,user_id,t1);
+                a.setVisible(true);
+                dispose();
+            }
+        });
+
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -132,7 +142,7 @@ public class invite extends JFrame{
             setLayout(new FlowLayout(FlowLayout.LEFT));
 
             setSize(850,100);
-            invite_friend = new JButton("invite");
+            invite_friend = new JButton("친구초대");
             ImgSetSize invite = new ImgSetSize("src/IMG/invite_invite.png", 50, 50);
             invite_friend.setIcon(invite.getImg());
             invite_friend.setBackground(new Color(255,255,255));
