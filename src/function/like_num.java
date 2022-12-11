@@ -29,7 +29,7 @@ public class like_num extends Thread{
     public void request(protocol content){
         try{
             System.out.println("typeofrequset : " + content.getTypeofrequest());
-            System.out.println("feed_id : " + content.getFeed_id());
+            //System.out.println("feed_id : " + content.getFeed_id());
             this.oos.writeObject(content); // 프로토콜로 담은 내용 전송
             this.oos.flush();
         }
@@ -57,7 +57,7 @@ public class like_num extends Thread{
                 try{
                     t = (protocol) ois.readObject();
                     if(t.getTypeofrequest() == 23){
-                        like_num.setText("좋아요 : " + String.valueOf(t.getLikeNum()));
+                        //like_num.setText("좋아요 : " + String.valueOf(t.getLikeNum()));
                         break;
                     }
                 }

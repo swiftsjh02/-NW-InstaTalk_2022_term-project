@@ -83,16 +83,6 @@ public class ListeningThread extends Thread { // 서버에서 보낸 메세지 �
 					System.out.println("메시지 : " +  t.getMessege());
 					System.out.println("파일 존재 여부 : " + t.isFile_exist());
 					System.out.println("파일명 : " + t.getFile_name());
-				}
-				else if(t.getTypeofrequest() == 9){
-					follow_yes_or_no = t.getFollow();
-					System.out.println("팔로우 여부");
-				}else if(t.getTypeofrequest()==10) {
-					post_num=t.getPostNum();
-				}else if(t.getTypeofrequest()==19) {
-					follow_num=t.getFollow_num();
-				}else if(t.getTypeofrequest()==20) {
-				    follower_num=t.get_follower_num();
 				}else if(t.getTypeofrequest() == 12) {
 					myroom_list=t.getList();
 					System.out.println("서버의 방목록 업데이트 결과가 도착했습니다.");

@@ -156,7 +156,7 @@ public class chat extends JFrame{
                 protocol time = new protocol();
                 time.setTime();
                 //client에 message와 room_id보내기
-                client.send_messege(4,room_id,my_id,message,time.getTime(),false,time.getTime());
+                client.send_messege(4,room_id,my_id,message,false,time.getTime());
             }
         });
 

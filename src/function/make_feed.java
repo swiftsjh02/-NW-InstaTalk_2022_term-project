@@ -67,7 +67,7 @@ public class make_feed extends Thread{
                 protocol t = (protocol) ois.readObject();
                 if(t.getTypeofrequest() == 18) {
                     feed_id = t.getSender();
-                    message = t.getMessage();
+                    //message = t.getMessage();
                     Tag_list = t.getList();
                     file_name = t.getFile_name();
                     System.out.println("feed_id: " + feed_id + "\tmessage: " + message + "\tTag_list: " + Tag_list + "\tfile_name: " + file_name);

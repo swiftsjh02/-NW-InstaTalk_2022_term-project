@@ -73,7 +73,7 @@ public class addFeed extends JFrame{
                 imgClient imgCl = new imgClient(user_id,imgName,time,client);
                 String file_name = imgCl.getName();
 
-                client.chat_message(new protocol(17,user_id,message,Tag,file_name));
+                // client.chat_message(new protocol(17,user_id,message,Tag,file_name));
 
                 mainFeed a = new mainFeed(session,user_id,client,t1);
                 setVisible(false);

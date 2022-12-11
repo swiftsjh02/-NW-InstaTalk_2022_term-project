@@ -183,7 +183,7 @@ public class get_data{
                     try{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 49){
-                            this.heart_yes_or_no = String.valueOf(t.getHeart());
+                           // this.heart_yes_or_no = String.valueOf(t.getHeart());
                             break;
                         }
                     }
@@ -216,7 +216,7 @@ public class get_data{
                     try{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 9){
-                            this.follow_yes_or_no = t.getFollow();
+                           // this.follow_yes_or_no = t.getFollow();
                             break;
                         }
                     }
@@ -233,7 +233,7 @@ public class get_data{
                     try{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 10){
-                            this.postNum = t.getPostNum();
+                            //this.postNum = t.getPostNum();
                             break;
                         }
                     }
@@ -310,8 +310,8 @@ public class get_data{
                 }
             }
             else if(typeofrequest == 17){
-                protocol p = new protocol(typeofrequest, user_id, message, Tag_list, file_name);
-                request(p);
+                //protocol p = new protocol(typeofrequest, user_id, message, Tag_list, file_name);
+                //request(p);
                 this.ois = new ObjectInputStream(is);
             }
             else if(typeofrequest == 18){
@@ -323,7 +323,7 @@ public class get_data{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 18){
                             feed_id = t.getSender();
-                            message = t.getMessage();
+                            //message = t.getMessage();
                             Tag_list = t.getList();
                             file_name = t.getFile_name();
                             break;
@@ -342,7 +342,7 @@ public class get_data{
                     try{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 19){
-                            followerNum = t.get_follower_num();
+                           // followerNum = t.get_follower_num();
                             break;
                         }
                     }
@@ -359,7 +359,7 @@ public class get_data{
                     try{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 20){
-                            followNum = t.getFollow_num();
+                            //followNum = t.getFollow_num();
                             break;
                         }
                     }
@@ -411,7 +411,7 @@ public class get_data{
                     try{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 23){
-                            like_num = t.getLikeNum();
+                           // like_num = t.getLikeNum();
                             break;
                         }
                     }
