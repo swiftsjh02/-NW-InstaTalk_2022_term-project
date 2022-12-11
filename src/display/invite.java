@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class invite extends JFrame{
-    private final static ArrayList<String> List= new ArrayList<String>();
+    private static ArrayList<String> List= new ArrayList<String>();
     private static ArrayList<String> friend_list = new ArrayList<String>();
     //
     private JPanel main;
@@ -121,6 +121,8 @@ public class invite extends JFrame{
                 catch(IOException e2){
                     e2.printStackTrace();
                 }
+
+                List.clear();
 
                 dm a = new dm(session,client,user_id,t1);
                 a.setVisible(true);

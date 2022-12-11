@@ -148,7 +148,7 @@
         <children>
           <component id="b1770" class="javax.swing.JButton" binding="signup">
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1"/>
@@ -156,24 +156,30 @@
               <text value="가입하기"/>
             </properties>
           </component>
-          <component id="46ef5" class="javax.swing.JLabel">
+          <component id="65f77" class="javax.swing.JButton" binding="회원탈퇴Button" default-binding="true">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="         계정이 없으신가요?   "/>
+              <text value="회원 탈퇴"/>
             </properties>
           </component>
-          <hspacer id="d1a35">
+          <component id="3c890" class="javax.swing.JButton" binding="아이디찾기Button" default-binding="true">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
-          </hspacer>
-          <hspacer id="cdf7f">
+            <properties>
+              <text value="아이디 찾기"/>
+            </properties>
+          </component>
+          <component id="51406" class="javax.swing.JButton" binding="비밀번호찾기Button" default-binding="true">
             <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
-          </hspacer>
+            <properties>
+              <text value="비밀번호 찾기"/>
+            </properties>
+          </component>
         </children>
       </grid>
     </children>

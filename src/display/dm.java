@@ -2,11 +2,11 @@ package display;
 
 import chatting.*;
 import function.get_data;
+import function.loginregister;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -23,6 +23,16 @@ public class dm extends JFrame{
     private chatting_client client;
 
     private int session;
+
+    class JFrameWindowClosingEventHandler extends WindowAdapter {
+        public void windowClosing(WindowEvent e) {
+            loginregister manager= new loginregister();
+
+            manager.logout(Integer.parseInt(user_id));
+            System.out.println("LogOut");
+
+        }
+    }
     public dm(int session, chatting_client client, String user_id, ListeningThread t1){
         this.session = session;
         this.t1 = t1;
@@ -70,6 +80,7 @@ public class dm extends JFrame{
         roomPanel.setViewportView(room);
         roomPanel.setVisible(true);
         room.setVisible(true);
+
         createRoom.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,9 +93,10 @@ public class dm extends JFrame{
         exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFeed a = new mainFeed(session,user_id,client,t1);
-                setVisible(false);
-                a.setVisible(true);
+                loginregister manager= new loginregister();
+                dispose();
+                manager.logout(Integer.parseInt(user_id));
+                System.out.println("LogOut");
             }
         });
     }

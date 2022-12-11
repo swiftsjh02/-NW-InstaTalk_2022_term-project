@@ -14,6 +14,9 @@ public class Login extends JFrame {
     private JButton signup;
     private JLabel Icon;
     private JPasswordField txtpwd;
+    private JButton 회원탈퇴Button;
+    private JButton 아이디찾기Button;
+    private JButton 비밀번호찾기Button;
 
     public String makedir(){
 
