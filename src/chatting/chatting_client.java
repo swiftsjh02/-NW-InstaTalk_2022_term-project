@@ -18,9 +18,6 @@ public class chatting_client implements Runnable { // 채팅 클라이언트
     private ObjectOutputStream oos; // 출력 스트림
     private ObjectInputStream ois; // 입력 스트림
 
-    private String ip;
-    private int port;
-
     public String user_id; // 사용자 아이디
     public ArrayList<String> my_room_list; // 내가 속한 방 목록
     private DataOutputStream dos; // 파일 전송용 출력 스트림
@@ -28,35 +25,9 @@ public class chatting_client implements Runnable { // 채팅 클라이언트
     private PrintWriter pw; // 파일 전송용 출력 스트림
     private ListeningThread t1; // 채팅 메시지 수신용 스레드
 
-    public String[] InitilizeConData(){
-        //open config.dat
-        String[] data = new String[2];
-        try{
-            File file = new File("src/config.dat");
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            data[0] = br.readLine();
-            data[0]=data[0].substring(data[0].indexOf(":"),data[0].length());
-            data[1] = br.readLine();
-            data[1]=data[1].substring(data[1].indexOf(":"),data[1].length());
-            this.ip=data[0];
-            this.port=Integer.parseInt(data[1]);
-            br.close();
-            return data;
-        }
-        catch(IOException e){
-            data[0]="swiftsjh.tplinkdns.com";
-            data[1]="25588";
-            this.ip=data[0];
-            this.port=Integer.parseInt(data[1]);
-            return data;
-        }
-    }
-
     public chatting_client(String user_id) {
         try {
-            String[] con = InitilizeConData();
-            this.socket = new Socket(con[0], Integer.valueOf(con[1])); // 소켓 연결
+            this.socket = new Socket("swiftsjh.tplinkdns.com", 25588); // 소켓 연결
             this.oos = new ObjectOutputStream(socket.getOutputStream());
             this.ois = new ObjectInputStream(socket.getInputStream());
             this.dos = new DataOutputStream(socket.getOutputStream());
@@ -109,7 +80,7 @@ public class chatting_client implements Runnable { // 채팅 클라이언트
             filechoose choice = new filechoose();
             String filename = choice.jFileChooserUtil();
             String filetype = filename.substring(filename.lastIndexOf("."));
-            Socket sc = new Socket(ip, 25589);
+            Socket sc = new Socket("swiftsjh.tplinkdns.com", 25589);
             protocol time = new protocol();
             time.setTime();
             file=new file_client(sc, filename, roomnumber, time.getTime(),1,A);

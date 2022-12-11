@@ -14,8 +14,6 @@ public class Login extends JFrame {
     private JButton signup;
     private JLabel Icon;
     private JPasswordField txtpwd;
-    private JButton 비밀번호찾기Button;
-    private JButton 아이디찾기Button;
 
     public String makedir(){
 
@@ -44,7 +42,7 @@ public class Login extends JFrame {
         // 캐싱된 체팅 파일들 모두 지우기
         makedir();
         new clean_cache("chatting_data/");
-        txtId.setText("이메일");
+        txtId.setText("전화번호, 사용자이름 또는 이메일");
         txtpwd.setText("비밀번호486");
         ImgSetSize mainphoto = new ImgSetSize("src/IMG/login.png", 800, 400);
         Icon.setIcon(mainphoto.getImg());
@@ -55,7 +53,7 @@ public class Login extends JFrame {
         setSize(850, 1000);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(0,0,850,1000);
-        setTitle("LogIn System");
+        setTitle("AI-DB Instagram LogIn System");
         setVisible(true);
 
         // 마우스 클릭 했을 때 텍스트 지우기
@@ -74,7 +72,7 @@ public class Login extends JFrame {
             @Override
             public void mouseExited(MouseEvent e) {
                 if(txtId.getText().equals("")){
-                    txtId.setText("이메일");
+                    txtId.setText("전화번호, 사용자이름 또는 이메일");
                 }
             }
         });
@@ -148,7 +146,7 @@ public class Login extends JFrame {
                     chatting_client client = new chatting_client(id);
                     client.run();
                     ListeningThread t1 = client.get_listening();
-                    dm a = new dm(session_id,client,id,t1);
+                    mainFeed a = new mainFeed(session_id,id,client,t1);
                     setVisible(false);
                     a.setVisible(true);
                 }

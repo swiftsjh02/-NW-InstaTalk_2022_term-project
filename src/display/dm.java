@@ -84,8 +84,9 @@ public class dm extends JFrame{
         exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                System.exit(1);
+                mainFeed a = new mainFeed(session,user_id,client,t1);
+                setVisible(false);
+                a.setVisible(true);
             }
         });
     }

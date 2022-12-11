@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class invite extends JFrame{
     private final static ArrayList<String> List= new ArrayList<String>();
@@ -26,7 +27,6 @@ public class invite extends JFrame{
     private JTextField search_friend;
     private JButton searchButton;
     private JLabel invite_list;
-    private JButton BACKButton;
 
     private String user_id;
     private chatting_client client;
@@ -112,14 +112,6 @@ public class invite extends JFrame{
                     e2.printStackTrace();
                 }
 
-                dm a = new dm(session,client,user_id,t1);
-                a.setVisible(true);
-                dispose();
-            }
-        });
-        BACKButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
                 dm a = new dm(session,client,user_id,t1);
                 a.setVisible(true);
                 dispose();
