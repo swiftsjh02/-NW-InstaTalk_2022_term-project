@@ -5,12 +5,11 @@ import function.get_data;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
 public class find_pw extends JFrame {
     private JPanel main;
+    private JTextField ID;
     private JTextField nickname;
     private JButton FindButton;
     private JTextField phone;
@@ -29,10 +28,10 @@ public class find_pw extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String nickname = find_pw.this.nickname.getText();
                 String phone = find_pw.this.phone.getText();
+                String id = find_pw.this.ID.getText();
                 get_data getData = new get_data();
                 getData.setType8(nickname, phone);
                 getData.start();
-                String id = getData.getEmail();
                 if(id==null){
                     JOptionPane.showMessageDialog(null, "일치하는 정보가 없습니다.");
                 }
