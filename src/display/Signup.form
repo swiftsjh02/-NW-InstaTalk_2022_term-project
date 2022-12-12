@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="display.Signup">
-  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="10" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="10" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1221" height="626"/>
+      <xy x="20" y="20" width="1221" height="706"/>
     </constraints>
     <properties>
       <background color="-1"/>
@@ -13,67 +13,14 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="e50dd" class="javax.swing.JButton" binding="button1" default-binding="true">
-        <constraints>
-          <grid row="8" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-13068304"/>
-          <foreground color="-1"/>
-          <hideActionText value="true"/>
-          <text value="Sign Up"/>
-        </properties>
-      </component>
-      <component id="e6d1a" class="javax.swing.JTextField" binding="email">
-        <constraints>
-          <grid row="4" column="3" row-span="3" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Username"/>
-        </properties>
-      </component>
-      <component id="273b9" class="javax.swing.JPasswordField" binding="pwd">
-        <constraints>
-          <grid row="7" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Password"/>
-        </properties>
-      </component>
-      <component id="ed5ce" class="javax.swing.JTextField" binding="fullNameTextField" default-binding="true">
-        <constraints>
-          <grid row="2" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Full Name"/>
-          <toolTipText value=""/>
-          <verifyInputWhenFocusTarget value="false"/>
-        </properties>
-      </component>
-      <component id="7d12e" class="javax.swing.JTextField" binding="mobileNumberOrEmailTextField" default-binding="true">
-        <constraints>
-          <grid row="1" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Mobile Number or Email"/>
-        </properties>
-      </component>
       <hspacer id="ce77e">
         <constraints>
-          <grid row="3" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="8895c">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <vspacer id="d5931">
@@ -86,34 +33,91 @@
           <grid row="9" column="3" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="9fc47" class="javax.swing.JLabel">
+      <component id="273b9" class="javax.swing.JPasswordField" binding="pwd">
         <constraints>
-          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="840" height="30"/>
+          </grid>
         </constraints>
         <properties>
-          <icon value="IMG/login.png"/>
+          <text value="Password"/>
+        </properties>
+      </component>
+      <component id="62f6d" class="javax.swing.JTextField" binding="birthfield">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="840" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="OOOO-OO-OO"/>
+        </properties>
+      </component>
+      <component id="ed5ce" class="javax.swing.JTextField" binding="nicknamefield">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="840" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Nick-name"/>
+          <toolTipText value=""/>
+          <verifyInputWhenFocusTarget value="false"/>
+        </properties>
+      </component>
+      <component id="e6d1a" class="javax.swing.JTextField" binding="Identifier">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="840" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="ID or E-mail"/>
+        </properties>
+      </component>
+      <component id="e50dd" class="javax.swing.JButton" binding="button1" default-binding="true">
+        <constraints>
+          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="840" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-13068304"/>
+          <foreground color="-1"/>
+          <hideActionText value="true"/>
+          <text value="Sign Up"/>
+        </properties>
+      </component>
+      <component id="5316d" class="javax.swing.JButton" binding="backButton">
+        <constraints>
+          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-13068304"/>
+          <foreground color="-1"/>
+          <text value="Back"/>
+        </properties>
+      </component>
+      <component id="9fc47" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="300" height="362"/>
+          </grid>
+        </constraints>
+        <properties>
+          <icon value="IMG/speechbubble.png"/>
           <text value=""/>
           <toolTipText value=""/>
         </properties>
       </component>
-      <component id="e3c6" class="javax.swing.JButton" binding="btnOk">
+      <component id="7d12e" class="javax.swing.JTextField" binding="namefield">
         <constraints>
-          <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="840" height="30"/>
+          </grid>
         </constraints>
         <properties>
-          <background color="-1"/>
-          <enabled value="true"/>
-          <foreground color="-12837602"/>
-          <text value="OK"/>
-        </properties>
-      </component>
-      <component id="96e8f" class="javax.swing.JLabel" binding="lblOk">
-        <constraints>
-          <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-1"/>
-          <text value=""/>
+          <text value="Name"/>
         </properties>
       </component>
     </children>

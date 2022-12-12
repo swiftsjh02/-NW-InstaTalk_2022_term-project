@@ -3,37 +3,36 @@ package display;
 import function.loginregister;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class Signup extends JFrame{
     private JPanel panel1;
-    private JTextField id;
-    private JTextField email;
+    private JTextField namefield;
+    private JTextField nicknamefield;
+    private JTextField birthfield;
+    private JTextField Identifier;
     private JButton button1;
+    private JButton backButton;
     private JPasswordField pwd;
-    private JTextField fullNameTextField;
-    private JTextField mobileNumberOrEmailTextField;
-    private JButton btnOk;
-    private JLabel lblOk;
+
 
     private boolean isIdPossible = false;
     private boolean isSuccess = false;
 
     public Signup(){
         setContentPane(panel1);
-        setSize(850, 1000);
+        setSize(1000, 700);
         setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-        setBounds(0,0,850,1000);
+        setBounds(0,0,1000,700);
         loginregister registermanager= new loginregister();
         setTitle("signup");
         setVisible(true);
 
         // 마우스 클릭 했을 때 텍스트 지우기
-        mobileNumberOrEmailTextField.addMouseListener(new MouseListener() {
+        namefield.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                mobileNumberOrEmailTextField.setText("");
+                namefield.setText("");
             }
 
             @Override
@@ -47,16 +46,16 @@ public class Signup extends JFrame{
 
             @Override
             public void mouseExited(MouseEvent e) {
-                if(mobileNumberOrEmailTextField.getText().equals("")){
-                    mobileNumberOrEmailTextField.setText("Mobile Number or Email");
+                if(namefield.getText().equals("")){
+                    namefield.setText("Name");
                 }
             }
         });
 
-        fullNameTextField.addMouseListener(new MouseListener() {
+        nicknamefield.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                fullNameTextField.setText("");
+                nicknamefield.setText("");
             }
 
             @Override
@@ -70,16 +69,38 @@ public class Signup extends JFrame{
 
             @Override
             public void mouseExited(MouseEvent e) {
-                if(fullNameTextField.getText().equals("")){
-                    fullNameTextField.setText("Full Name");
+                if(nicknamefield.getText().equals("")){
+                    nicknamefield.setText("Nick-name");
+                }
+            }
+        });
+        birthfield.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                birthfield.setText("");
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {}
+
+            @Override
+            public void mouseReleased(MouseEvent e) {}
+
+            @Override
+            public void mouseEntered(MouseEvent e) {}
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if(birthfield.getText().equals("")){
+                    birthfield.setText("OOOO-OO-OO");
                 }
             }
         });
 
-        email.addMouseListener(new MouseListener() {
+        Identifier.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                email.setText("");
+                Identifier.setText("");
             }
 
             @Override
@@ -93,8 +114,8 @@ public class Signup extends JFrame{
 
             @Override
             public void mouseExited(MouseEvent e) {
-                if(email.getText().equals("")){
-                    email.setText("Username");
+                if(Identifier.getText().equals("")){
+                    Identifier.setText("ID or E-mail");
                 }
             }
         });
@@ -125,39 +146,39 @@ public class Signup extends JFrame{
         });
 
         // 탭키나 엔터키 눌렀을때의 이벤트
-        mobileNumberOrEmailTextField.setFocusTraversalKeysEnabled(false);
-        mobileNumberOrEmailTextField.addKeyListener(new KeyListener() {
+        namefield.setFocusTraversalKeysEnabled(false);
+        namefield.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {}
 
             @Override
             public void keyPressed(KeyEvent e) {
                 if(e.getKeyCode() == KeyEvent.VK_TAB){
-                    fullNameTextField.requestFocus();
-                    fullNameTextField.setText("");
+                    nicknamefield.requestFocus();
+                    nicknamefield.setText("");
                 }
             }
             @Override
             public void keyReleased(KeyEvent e) {}
         });
-        fullNameTextField.setFocusTraversalKeysEnabled(false);
-        fullNameTextField.addKeyListener(new KeyListener() {
+        nicknamefield.setFocusTraversalKeysEnabled(false);
+        nicknamefield.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {}
 
             @Override
             public void keyPressed(KeyEvent e) {
                 if(e.getKeyCode() == KeyEvent.VK_TAB){
-                    email.requestFocus();
-                    email.setText("");
+                    Identifier.requestFocus();
+                    Identifier.setText("");
                 }
             }
             @Override
             public void keyReleased(KeyEvent e) {}
         });
 
-        email.setFocusTraversalKeysEnabled(false);
-        email.addKeyListener(new KeyListener() {
+        Identifier.setFocusTraversalKeysEnabled(false);
+        Identifier.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {}
 
@@ -173,25 +194,13 @@ public class Signup extends JFrame{
         });
 
 
-        pwd.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
 
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_ENTER){
-                    btnOk.doClick();
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
 
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 char[] password= pwd.getPassword();
-                String emailfromclient= email.getText();
+                String emailfromclient= Identifier.getText();
                 System.out.println("ID: " + emailfromclient + "\tPWD: " + password + "\n");
                 String pwd_chartostr = new String(password);
                 int status= registermanager.register(emailfromclient,pwd_chartostr);
@@ -209,22 +218,14 @@ public class Signup extends JFrame{
 
             }
         });
-
-        btnOk.addActionListener(new ActionListener() {
+        backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Check Duplicated Id...");
-                System.out.println(isIdPossible);
-
-                if (isIdPossible == true) {
-                    lblOk.setForeground(Color.GREEN);
-                    lblOk.setText("Possible");
-                }
-                else {
-                    lblOk.setForeground(Color.RED);
-                    lblOk.setText("Impossible");
-                }
+                Login b = new Login();
+                setVisible(false);
+                b.setVisible(true);
             }
         });
+
     }
 }

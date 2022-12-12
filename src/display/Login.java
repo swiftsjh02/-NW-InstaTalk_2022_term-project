@@ -45,7 +45,7 @@ public class Login extends JFrame {
         // 캐싱된 체팅 파일들 모두 지우기
         makedir();
         new clean_cache("chatting_data/");
-        txtId.setText("전화번호, 사용자이름 또는 이메일");
+        txtId.setText("계정(아이디 또는 이메일)");
         txtpwd.setText("비밀번호486");
         ImgSetSize mainphoto = new ImgSetSize("src/IMG/login.png", 800, 400);
         Icon.setIcon(mainphoto.getImg());
@@ -75,7 +75,7 @@ public class Login extends JFrame {
             @Override
             public void mouseExited(MouseEvent e) {
                 if(txtId.getText().equals("")){
-                    txtId.setText("전화번호, 사용자이름 또는 이메일");
+                    txtId.setText("계정(아이디 또는 이메일)");
                 }
             }
         });
