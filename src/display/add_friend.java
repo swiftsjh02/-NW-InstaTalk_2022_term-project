@@ -71,7 +71,7 @@ public class add_friend extends JFrame{
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dm a = new dm(session,client,user_id,t1);
+                invite a = new invite(session,client,user_id,t1);
                 a.setVisible(true);
                 dispose();
             }

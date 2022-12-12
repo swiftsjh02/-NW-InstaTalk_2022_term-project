@@ -165,6 +165,22 @@ public class Login extends JFrame {
                 sign.setVisible(true);
             }
         });
+        아이디찾기Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FindID findid = new FindID();
+                setVisible(false);
+                findid.setVisible(true);
+            }
+        });
+        비밀번호찾기Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                find_pw findpwd = new find_pw();
+                setVisible(false);
+                findpwd.setVisible(true);
+            }
+        });
     }
 }
 

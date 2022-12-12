@@ -12,8 +12,8 @@ public class Signup extends JFrame{
     private JTextField email;
     private JButton button1;
     private JPasswordField pwd;
-    private JTextField fullNameTextField;
-    private JTextField mobileNumberOrEmailTextField;
+    private JTextField phone;
+    private JTextField nickname;
     private JButton btnOk;
     private JLabel lblOk;
 
@@ -30,10 +30,10 @@ public class Signup extends JFrame{
         setVisible(true);
 
         // 마우스 클릭 했을 때 텍스트 지우기
-        mobileNumberOrEmailTextField.addMouseListener(new MouseListener() {
+        nickname.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                mobileNumberOrEmailTextField.setText("");
+                nickname.setText("");
             }
 
             @Override
@@ -47,16 +47,16 @@ public class Signup extends JFrame{
 
             @Override
             public void mouseExited(MouseEvent e) {
-                if(mobileNumberOrEmailTextField.getText().equals("")){
-                    mobileNumberOrEmailTextField.setText("Mobile Number or Email");
+                if(nickname.getText().equals("")){
+                    nickname.setText("닉네임");
                 }
             }
         });
 
-        fullNameTextField.addMouseListener(new MouseListener() {
+        phone.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                fullNameTextField.setText("");
+                phone.setText("");
             }
 
             @Override
@@ -70,8 +70,8 @@ public class Signup extends JFrame{
 
             @Override
             public void mouseExited(MouseEvent e) {
-                if(fullNameTextField.getText().equals("")){
-                    fullNameTextField.setText("Full Name");
+                if(phone.getText().equals("")){
+                    phone.setText("휴대폰번호(-없이)");
                 }
             }
         });
@@ -94,7 +94,7 @@ public class Signup extends JFrame{
             @Override
             public void mouseExited(MouseEvent e) {
                 if(email.getText().equals("")){
-                    email.setText("Username");
+                    email.setText("이메일(아이디)");
                 }
             }
         });
@@ -125,23 +125,23 @@ public class Signup extends JFrame{
         });
 
         // 탭키나 엔터키 눌렀을때의 이벤트
-        mobileNumberOrEmailTextField.setFocusTraversalKeysEnabled(false);
-        mobileNumberOrEmailTextField.addKeyListener(new KeyListener() {
+        nickname.setFocusTraversalKeysEnabled(false);
+        nickname.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {}
 
             @Override
             public void keyPressed(KeyEvent e) {
                 if(e.getKeyCode() == KeyEvent.VK_TAB){
-                    fullNameTextField.requestFocus();
-                    fullNameTextField.setText("");
+                    phone.requestFocus();
+                    phone.setText("");
                 }
             }
             @Override
             public void keyReleased(KeyEvent e) {}
         });
-        fullNameTextField.setFocusTraversalKeysEnabled(false);
-        fullNameTextField.addKeyListener(new KeyListener() {
+        phone.setFocusTraversalKeysEnabled(false);
+        phone.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {}
 
@@ -192,9 +192,11 @@ public class Signup extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 char[] password= pwd.getPassword();
                 String emailfromclient= email.getText();
+                String nicknameclient= nickname.getText();
+                String phoneclient= phone.getText();
                 System.out.println("ID: " + emailfromclient + "\tPWD: " + password + "\n");
                 String pwd_chartostr = new String(password);
-                int status= registermanager.register(emailfromclient,pwd_chartostr);
+                int status= registermanager.register(emailfromclient,pwd_chartostr,nicknameclient,phoneclient);
                 if(status!= -1 && status != 2){
                     Login a = new Login();
                     setVisible(false);

@@ -6,8 +6,17 @@ import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 public class get_data{
+    private String host;
+    private int port;
     public get_data(){
-        // 빈 생성자
+        try{
+            readTxt read = new readTxt();
+            host = read.getHost();
+            ArrayList<String> temp = read.getPort();
+            port = Integer.parseInt(temp.get(3));
+        }catch (Exception e){
+            e.getStackTrace();
+        }
     }
     private InputStream is;
     private OutputStream os;
@@ -34,13 +43,20 @@ public class get_data{
     private ArrayList<String> Tag_list;
     private String message;
     private String file_name;
-
     private String feed_id;
     private String post_id;
     private String poster_id;
-
-
     private int like_num;
+    private String name;
+    private String phoneNum;
+    private String email;
+
+
+    public void setType8(String name, String phoneNum){
+        this.typeofrequest = 8;
+        this.name = name;
+        this.phoneNum = phoneNum;
+    }
     public void setType49(int typeofrequest, String user_id, String feed_id){
         this.typeofrequest = typeofrequest;
         this.user_id = user_id;
@@ -151,13 +167,15 @@ public class get_data{
     }
     public String getFeed_id(){return feed_id;}
     public String getposter_id(){return poster_id;}
+    public String getEmail(){return email;}
 
     public int getLikeNum() {
         return like_num;
     }
     public void start(){
         try{
-            Socket socket = new Socket("swiftsjh.tplinkdns.com",9998);
+            Socket socket = new Socket(host,port);
+            System.out.println("port : " + port + ", host : " + host + "로 데이터 요청 시도");
             System.out.println("서버 연결 성공");
             this.is = socket.getInputStream();
             this.os = socket.getOutputStream();
@@ -174,8 +192,24 @@ public class get_data{
             this.pw = new PrintWriter(bos);
             if(typeofrequest == 1){
 
-            }
-            else if(typeofrequest == 49){
+            } else if (typeofrequest == 8) {
+                // 아이디찾기
+                protocol p = new protocol(typeofrequest, name, phoneNum);
+                request(p);
+                this.ois = new ObjectInputStream(is);
+                while(true){
+                    try{
+                        protocol t = (protocol) ois.readObject();
+                        if(t.getTypeofrequest() == 8){
+                            email = t.getEmail();
+                            break;
+                        }
+                    }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
+                }
+            } else if(typeofrequest == 49){
                 protocol p = new protocol(typeofrequest, user_id, feed_id);
                 request(p);
                 this.ois = new ObjectInputStream(is);
@@ -183,7 +217,7 @@ public class get_data{
                     try{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 49){
-                           // this.heart_yes_or_no = String.valueOf(t.getHeart());
+                            // this.heart_yes_or_no = String.valueOf(t.getHeart());
                             break;
                         }
                     }
@@ -216,7 +250,7 @@ public class get_data{
                     try{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 9){
-                           // this.follow_yes_or_no = t.getFollow();
+                            // this.follow_yes_or_no = t.getFollow();
                             break;
                         }
                     }
@@ -233,7 +267,7 @@ public class get_data{
                     try{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 10){
-                            //this.postNum = t.getPostNum();
+                            // this.postNum = t.getPostNum();
                             break;
                         }
                     }
@@ -310,8 +344,8 @@ public class get_data{
                 }
             }
             else if(typeofrequest == 17){
-                //protocol p = new protocol(typeofrequest, user_id, message, Tag_list, file_name);
-                //request(p);
+                // protocol p = new protocol(typeofrequest, user_id, message, Tag_list, file_name);
+                // request(p);
                 this.ois = new ObjectInputStream(is);
             }
             else if(typeofrequest == 18){
@@ -323,7 +357,7 @@ public class get_data{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 18){
                             feed_id = t.getSender();
-                            //message = t.getMessage();
+                            // message = t.getMessage();
                             Tag_list = t.getList();
                             file_name = t.getFile_name();
                             break;
@@ -342,7 +376,7 @@ public class get_data{
                     try{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 19){
-                           // followerNum = t.get_follower_num();
+                            // followerNum = t.get_follower_num();
                             break;
                         }
                     }
@@ -359,7 +393,7 @@ public class get_data{
                     try{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 20){
-                            //followNum = t.getFollow_num();
+                            // followNum = t.getFollow_num();
                             break;
                         }
                     }
@@ -411,7 +445,7 @@ public class get_data{
                     try{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 23){
-                           // like_num = t.getLikeNum();
+                            // like_num = t.getLikeNum();
                             break;
                         }
                     }

@@ -7,7 +7,7 @@ public class loginregister {
     public static int port = 9898;
     public static String host = "swiftsjh.tplinkdns.com";
     public static md5 encryptor= new md5();
-    public int register(String id,String password){
+    public int register(String id,String password,String nickname,String phone){
         try{
             Socket socket = new Socket(host,port);
             OutputStream os = socket.getOutputStream();
@@ -25,6 +25,10 @@ public class loginregister {
             pw.println(id);
             pw.flush();
             pw.println(enc_password);
+            pw.flush();
+            pw.println(nickname);
+            pw.flush();
+            pw.println(phone);
             pw.flush();
 
             int register_status=-1;
