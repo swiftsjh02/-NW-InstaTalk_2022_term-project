@@ -202,9 +202,11 @@ public class Signup extends JFrame{
                     setVisible(false);
                     a.setVisible(true);
                 } else if (status==2) {
+                    JOptionPane.showMessageDialog(null, "중복 아이디 존재");
                     System.out.println("중복된 아이디가 존재합니다.");
                 }
                 else{
+                    JOptionPane.showMessageDialog(null, "알수없는 에러");
                     System.out.println("알 수 없는 에러");
                 }
 

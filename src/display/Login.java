@@ -154,6 +154,7 @@ public class Login extends JFrame {
                     a.setVisible(true);
                 }
                 else{
+                    JOptionPane.showMessageDialog(null, "아이디 혹은 비밀번호가 틀렸습니다.");
                     System.out.println("x");
                 }
             }
