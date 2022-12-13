@@ -42,9 +42,9 @@ public class invite extends JFrame{
         // client에서 list 받아오기 get_friend_list();
 
         get_data getData = new get_data();
-        getData.setType15(15, user_id);
+        getData.setType54(user_id);
         getData.start();
-        friend_list = getData.getAllUserList();
+        friend_list = getData.getList();
 
         invite_scroll.getVerticalScrollBar().setUnitIncrement(15);
 

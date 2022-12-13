@@ -1,6 +1,7 @@
 package display;
 
 import chatting.*;
+import function.getCoinData;
 import function.get_data;
 import function.loginregister;
 
@@ -18,6 +19,10 @@ public class dm extends JFrame{
     private JScrollPane roomPanel;
     private JPanel room;
     private JButton exit;
+    private JPanel BTCPRICE;
+    private JLabel btc;
+    private JTextField price;
+
     private String user_id;
     private ListeningThread t1;
     private chatting_client client;
@@ -80,6 +85,7 @@ public class dm extends JFrame{
         roomPanel.setViewportView(room);
         roomPanel.setVisible(true);
         room.setVisible(true);
+        new BTCPRICE();
 
         createRoom.addActionListener(new ActionListener() {
             @Override
@@ -99,6 +105,14 @@ public class dm extends JFrame{
                 System.out.println("LogOut");
             }
         });
+    }
+
+    public class BTCPRICE extends JPanel{
+        public BTCPRICE(){
+            getCoinData coin = new getCoinData("ETH");
+            System.out.println(coin.getTrade_price());
+            price.setText(coin.getTrade_price());
+        }
     }
     public class roomPanel extends JPanel{
         private  ArrayList<String> member_list = new ArrayList<>();

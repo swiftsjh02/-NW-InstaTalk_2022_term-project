@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class add_friend extends JFrame{
     private static ArrayList<String> List= new ArrayList<String>();
@@ -104,7 +105,14 @@ public class add_friend extends JFrame{
         add_friend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+             if(List.size()!=0){
+                 get_data getData = new get_data();
+                 getData.setType16(user_id, List);
+                 getData.start();
+                 JOptionPane.showMessageDialog(null, "친구 추가 완료");
+             }else{
+                 JOptionPane.showMessageDialog(null, "추가할 친구를 선택해주세요");
+             }
             }
         });
     }
@@ -122,7 +130,7 @@ public class add_friend extends JFrame{
             setLayout(new FlowLayout(FlowLayout.LEFT));
 
             setSize(850,100);
-            invite_friend = new JButton(friend_id+" 초대");
+            invite_friend = new JButton(friend_id+" 친구추가");
             ImgSetSize invite = new ImgSetSize("src/IMG/invite_invite.png", 50, 50);
             invite_friend.setIcon(invite.getImg());
             invite_friend.setBackground(new Color(255,255,255));
