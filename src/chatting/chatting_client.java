@@ -49,6 +49,7 @@ public class chatting_client implements Runnable { // 채팅 클라이언트
         }
     }
     public void make_room(int typeofrequest, String sender, ArrayList<String> list){
+        System.out.println("chatting client "+list);
         protocol content = new protocol(typeofrequest, sender, list);
         chat_message(content); // 방 생성
     }

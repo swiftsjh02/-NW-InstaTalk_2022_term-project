@@ -103,6 +103,7 @@ public class invite extends JFrame{
         create.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                List.add(user_id);
                 for(int i = 0;i< List.size();i++){
                     System.out.println(List.get(i));
                 }
@@ -112,7 +113,8 @@ public class invite extends JFrame{
                 getData.setType11(11, user_id);
                 getData.start();
                 ArrayList<String> b = getData.getMy_room_list();
-                System.out.println("chatting_data/" + b.get(b.size()-1) + ".txt");
+                //System.out.println("나의 방 사이즈:"+b.size());
+                //System.out.println("chatting_data/" + b.get(b.size()-1) + ".txt");
                 File file =new File("chatting_data/" + b.get(b.size()-1) + ".txt");
                 try{
                     FileWriter fw =new FileWriter(file,true);
@@ -123,7 +125,7 @@ public class invite extends JFrame{
                     e2.printStackTrace();
                 }
 
-                List.clear();
+                List= new ArrayList<>();
 
                 dm a = new dm(session,client,user_id,t1);
                 a.setVisible(true);
